@@ -4,7 +4,7 @@
 
 ## The Building Blocks
 
-To get started, there are four kinds of selectors in CSS. 
+To get started, there are four kinds of selectors in CSS.
 <!-- TODO(maddie): Add more content here -->
 
 ### `.class`
@@ -59,11 +59,11 @@ In many ways the exact opposite of `#id`, `*` selects literally *every* element 
 
 ### `element`
 <!-- TODO(maddie): link to semantic markup article -->
-This selector refers to the actualy DOM element. When you style all `div`s, you are selecting every `<div></div>` in the DOM, regardless of what class or IDs they have. If you are taking advantage of semantic markup, you can use these selectors pretty effectively without needing to add extra classes. 
+This selector refers to the actualy DOM element. When you style all `div`s, you are selecting every `<div></div>` in the DOM, regardless of what class or IDs they have. If you are taking advantage of semantic markup, you can use these selectors pretty effectively without needing to add extra classes.
 
 ## Naming Classes and IDs
 
-It is important to choose the names you give classes and ID's carefully. 
+It is important to choose the names you give classes and ID's carefully. Syntactically, its usually best to use lowercase words connected by hyphens like `.class-name` (fun fact: this is called kebab case). You want to pick class names and IDs the same way you would pick a variable name in any other coding project. 
 <!-- TODO(maddie): naming classes and ids -->
 
 ## More Advanced Selectors
@@ -71,4 +71,3 @@ It is important to choose the names you give classes and ID's carefully.
 
 ## Nesting
 <!-- TODO(maddie): nesting -->
-
