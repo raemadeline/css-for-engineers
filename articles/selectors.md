@@ -63,11 +63,100 @@ This selector refers to the actualy DOM element. When you style all `div`s, you 
 
 ## Naming Classes and IDs
 
-It is important to choose the names you give classes and ID's carefully. Syntactically, its usually best to use lowercase words connected by hyphens like `.class-name` (fun fact: this is called kebab case). You want to pick class names and IDs the same way you would pick a variable name in any other coding project. 
-<!-- TODO(maddie): naming classes and ids -->
+It is important to choose the names you give classes and ID's carefully. Syntactically, its usually best to use lowercase words connected by hyphens like `.class-name` (fun fact: this is called kebab case). You want to pick class names and IDs the same way you would pick a variable name in any other coding project, keeping them specific, consistent, and easily extendable.
 
-## More Advanced Selectors
+## Putting Things Together
 <!-- TODO(maddie): referential selectors -->
+You can accomplish a lot with just the simple selectors outlined above, but sometimes you want to get fancy and complex with your CSS. You can chain together selectors to be more specific.
+
+For example, if you had this as your HTML
+```
+<div>
+  <p>Hello</p>
+</div>
+<p>World</p>
+```
+and this as your CSS
+```
+div p {
+  font-weight: bold;
+}
+```
+You would get something that looked like this:
+
+**Hello** World
+
+The selectors read from outside in, so first looking at all DOM elements that are `<div>`s, then inside searching for `<p>` elements. This is useful when you want to override default styling for a special component like a panel or a modal.
+
+### Combinators
+
+What if you want something more specific than just searching for descendants of a parent element? There are combinators, or operations you can do on selectors to get funky with your code and generate some cool stuff.
+
+#### >
+
+`>` is the direct child selector. It will only select elements that are directly below its parent.
+
+For example, if you had this as your HTML
+```
+<div>
+  <div class="bar">
+    <p>Hooray!</p>
+  </div>
+  <p>Hello</p>
+</div>
+<p>World</p>
+```
+and this as your CSS
+```
+div > p {
+  font-weight: bold;
+}
+```
+Still only the word "Hello" would be styled.
+
+#### ~
+
+`~` is the sibling selector. So any elements that are at the same level and exist under the same parent will be selected.
+
+For example, if you had this as your HTML
+```
+<p>Yay!</p>
+<div class="selected">
+  <p>Hello</p>
+</div>
+<p>World</p>
+```
+and this as your CSS
+```
+.selected ~ p {
+  font-weight: bold;
+}
+```
+The words "World" and "Yay!" would be bolded this time, because they are at the same level as the `<div class="selected">` and they are all exist under the same parent `<body>`.
+
+#### +
+
+`+` is the adjacent sibling selector, so only the sibling immediately following the first selector will be chosen. Note that this is not the first element of this type following the selector, its only if the second element is directly adjacent to the first.
+
+For example, if you had this as your HTML
+```
+<div class="selected"></div>
+<h1>Testing</h1>
+<p>Yay!</p>
+<div class="selected">
+  <p>Hello</p>
+</div>
+<p>World</p>
+```
+and this as your CSS
+```
+.selected + p {
+  font-weight: bold;
+}
+```
+Only the word "World" would be bolded. Take special note that "Yay!" is not bolded because there is another element between it and `<div class="selected">`.
 
 ## Nesting
 <!-- TODO(maddie): nesting -->
+
+## Pseudo Classes and Selectors
