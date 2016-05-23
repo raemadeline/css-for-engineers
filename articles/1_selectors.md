@@ -89,7 +89,7 @@ In many ways the exact opposite of `#id`, `*` selects literally *every* element 
 It is important to choose the names you give classes and ID's carefully. Syntactically, its usually best to use lowercase words connected by hyphens like `.class-name` (fun fact: this is called kebab case). You want to pick class names and IDs the same way you would pick a variable name in any other coding project, keeping them specific, consistent, and easily extendable.
 
 ## Putting Things Together
-<!-- TODO(maddie): referential selectors -->
+
 You can accomplish a lot with just the simple selectors outlined above, but sometimes you want to get fancy and complex with your CSS. You can chain together selectors to be more specific.
 
 For example, if you had this as your HTML
@@ -112,6 +112,16 @@ p span {
 You would get something that looked like this:
 
 **Hello** World
+
+You can also do something like this:
+
+```
+form * {
+  /* Insert styling here */
+}
+```
+
+to select all descendants of the `form`, including children, "grandchildren", etc.
 
 This is called a descendant selector, because you are selecting the descendant (`<span>`) of the parent (`<p>`). The selectors read from outside in, so first looking at all DOM elements that are `<p>`s, then inside searching for `<span>` elements. This is useful when you want to override default styling for a special component like a panel or a modal.
 
@@ -207,4 +217,4 @@ and this as your CSS
 
 Only the word "World" would be bolded. Take special note that "Yay!" is not bolded because there is another element between it and `<div class="selected">`.
 
-**Keep an eye out for Parts 2 and 3 of this blog post where I will discuss pseudo elements and more advanced selectors that can be used with SASS (a beautiful CSS preprocessor).**
+**Keep an eye out for [Parts 2](2_pseudo-classes.md) and 3 of this blog post where I will discuss pseudo elements and more advanced selectors that can be used with SASS (a beautiful CSS preprocessor).**
