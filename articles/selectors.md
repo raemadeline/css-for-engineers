@@ -102,6 +102,18 @@ The selectors read from outside in, so first looking at all DOM elements that ar
 
 What if you want something more specific than just searching for descendants of a parent element? There are combinators, or operations you can do on selectors to get funky with your code and generate some cool stuff.
 
+#### Concatenating Selectors
+
+You can increase the specificity of a selector by concatenating two core building blocks together. This selects only the elements that apply to both conditions.
+
+Examples:
+
+`div.special` selects all elements that look like `<div class="special"></div>`
+
+`.class-name.other-class-name` selects all elements that have `class="class-name other-class-name"` in their HTML.
+
+`input[type="text"]` selects all elements that look like `<input type="text"></input>`. This is a special case utilizing what is called an attribute selector, where it picks up other properties of the DOM element, in this case `type`. This works for most attributes, but its better to avoid this except when it affects the HTML that is displayed, like when using types for different `input` tags. 
+
 #### >
 
 `>` is the direct child selector. It will only select elements that are directly below its parent.
