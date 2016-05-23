@@ -1,10 +1,10 @@
-# A Crash Course in CSS Selectors
+# A Crash Course in CSS Selectors: Part 1
 
 <!-- TODO(maddie): more of an intro -->
 
 ## The Building Blocks
 
-To get started, there are four kinds of selectors in CSS that are the building blocks for everything else, classes, ids, elements, and the universal selector. They are the atoms and every other selector is a molecule made up of these parts.
+To get started, there are four kinds of selectors in CSS that are the building blocks for everything else: classes, ids, elements, and the universal selector. They are the atoms and every other selector is a molecule made up of these parts.
 
 ### `.class`
 
@@ -61,7 +61,7 @@ In most cases when building out CSS for a large and complex product, you general
 
 ### `element`
 <!-- TODO(maddie): link to semantic markup article -->
-This selector refers to the actualy DOM element. When you style all `div`s, you are selecting every `<div></div>` in the DOM, regardless of what class or IDs they have. If you are taking advantage of semantic markup, you can use these selectors pretty effectively without needing to add extra classes.
+This selector refers to the actualy DOM element. When you style all `div`s, you are selecting every `<div></div>` in the DOM, regardless of what class or IDs they have. If you are taking advantage of semantic markup (using `<header>` instead of `<div class="header">` for example -- more on this in its own blog post), you can use these selectors pretty effectively without needing to add extra classes.
 
 ### `*`, the Universal Selector
 
@@ -78,16 +78,16 @@ You can accomplish a lot with just the simple selectors outlined above, but some
 For example, if you had this as your HTML
 
 ```
-<div>
-  <p>Hello</p>
-</div>
-<p>World</p>
+<p>
+  <span>Hello</span>
+  World
+</p>
 ```
 
 and this as your CSS
 
 ```
-div p {
+p span {
   font-weight: bold;
 }
 ```
@@ -96,7 +96,7 @@ You would get something that looked like this:
 
 **Hello** World
 
-The selectors read from outside in, so first looking at all DOM elements that are `<div>`s, then inside searching for `<p>` elements. This is useful when you want to override default styling for a special component like a panel or a modal.
+This is called a descendant selector, because you are selecting the descendand (`<span>`) of the parent (`<p>`). The selectors read from outside in, so first looking at all DOM elements that are `<div>`s, then inside searching for `<p>` elements. This is useful when you want to override default styling for a special component like a panel or a modal.
 
 ### Combinators
 
@@ -112,7 +112,7 @@ Examples:
 
 `.class-name.other-class-name` selects all elements that have `class="class-name other-class-name"` in their HTML.
 
-`input[type="text"]` selects all elements that look like `<input type="text"></input>`. This is a special case utilizing what is called an attribute selector, where it picks up other properties of the DOM element, in this case `type`. This works for most attributes, but its better to avoid this except when it affects the HTML that is displayed, like when using types for different `input` tags. 
+`input[type="text"]` selects all elements that look like `<input type="text"></input>`. This is a special case utilizing what is called an attribute selector, where it picks up other properties of the DOM element, in this case `type`. This works for most attributes, but its better to avoid this except when it affects the HTML that is displayed, like when using types for different `input` tags.
 
 #### >
 
@@ -138,7 +138,7 @@ div > p {
 }
 ```
 
-Still only the word "Hello" would be styled.
+Only the word "Hello" would be styled.
 
 #### ~
 
@@ -166,7 +166,7 @@ The words "World" and "Yay!" would be bolded this time, because they are at the 
 
 #### +
 
-`+` is the adjacent sibling selector, so only the sibling immediately following the first selector will be chosen. Note that this is not the first element of this type following the selector, its only if the second element is directly adjacent to the first.
+`+` is the adjacent sibling selector, so only the sibling immediately following the first selector will be chosen. The sibling is only selected if it is the next element immediately following the first element in the selector.
 
 For example, if you had this as your HTML
 
