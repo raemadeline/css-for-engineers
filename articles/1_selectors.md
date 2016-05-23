@@ -1,6 +1,6 @@
 # A Crash Course in CSS Selectors: Part 1
 
-<!-- TODO(maddie): more of an intro -->
+Welcome to CSS For Engineers! This is a series of blog posts explaining concepts and features of CSS (and the preprocessor SASS) in a way that relates these new concepts back to already-familiar software engineering principles.
 
 ## The Building Blocks
 
@@ -190,5 +190,4 @@ and this as your CSS
 
 Only the word "World" would be bolded. Take special note that "Yay!" is not bolded because there is another element between it and `<div class="selected">`.
 
-<!-- TODO(maddie): link to part 2 -->
 **Keep an eye out for Parts 2 and 3 of this blog post where I will discuss pseudo elements and more advanced selectors that can be used with SASS (a beautiful CSS preprocessor).**
