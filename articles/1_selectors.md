@@ -36,7 +36,7 @@ The `div` and the `p` elements would both have `10px` padding and they would hav
 
 ### `#id`
 
-The `#id` selector selects the only element with that ID. It is meant to be the most specific selector you can use to hone in on a very specific element and nothing else.
+The `#id` selector selects the only element with that ID. It is meant to be the most specific selector you can use to hone in on a very specific element and nothing else. The browser assumes that there will only be one element with a specific id in a given page.
 
 For example, if you had this as your HTML
 
