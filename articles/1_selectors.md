@@ -63,6 +63,23 @@ In most cases when building out CSS for a large and complex product, you general
 <!-- TODO(maddie): link to semantic markup article -->
 This selector refers to the actualy DOM element. When you style all `div`s, you are selecting every `<div></div>` in the DOM, regardless of what class or IDs they have. If you are taking advantage of semantic markup (using `<header>` instead of `<div class="header">` for example -- more on this in its own blog post), you can use these selectors pretty effectively without needing to add extra classes.
 
+You can also add specificity to these selectors by taking advantage of certain attributes the DOM element has. For instance, if you were styling a form that had both `<input type="text"></input>` and `<input type="submit"></input>`, you would want to style them differently as one appears in the DOM as a text box while the other appears as a button, despite them both having the tag name `input`.
+
+In the CSS, this would look like:
+
+```
+input[type="text"] {
+  /* styling goes here */
+}
+
+input[type="submit"] {
+  /* styling goes here */
+}
+```
+
+<!-- TODO(maddie): write a post about attribute selectors -->
+Generally, you can select on any attribute of the DOM element, not just `type`. There are also a bunch of really cool things you can do with attribute selectors, like comparing prefixes and suffixes. Check the [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) for more information.
+
 ### `*`, the Universal Selector
 
 In many ways the exact opposite of `#id`, `*` selects literally *every* element in the DOM. Use this with caution.
@@ -122,9 +139,9 @@ For example, if you had this as your HTML
 
 ```
 <div>
-  <div class="bar">
+  <span class="bar">
     <p>Hooray!</p>
-  </div>
+  </span>
   <p>Hello</p>
 </div>
 <p>World</p>
