@@ -96,7 +96,7 @@ You would get something that looked like this:
 
 **Hello** World
 
-This is called a descendant selector, because you are selecting the descendand (`<span>`) of the parent (`<p>`). The selectors read from outside in, so first looking at all DOM elements that are `<div>`s, then inside searching for `<p>` elements. This is useful when you want to override default styling for a special component like a panel or a modal.
+This is called a descendant selector, because you are selecting the descendant (`<span>`) of the parent (`<p>`). The selectors read from outside in, so first looking at all DOM elements that are `<p>`s, then inside searching for `<span>` elements. This is useful when you want to override default styling for a special component like a panel or a modal.
 
 ### Combinators
 
