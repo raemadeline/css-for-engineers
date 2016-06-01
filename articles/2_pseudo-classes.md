@@ -89,7 +89,7 @@ If you wanted to get even more customized, you can do anything in the format of 
 
 In a similar vein, you can also do the same thing but counting backwards from the end of the list using `:nth-last-child(N)`, using it the exact same way as you would `:nth-child(N)`.
 
-For simplicity for commonly used selectors, you can substitute `:first-child` for `:nth-child(0)`, and `:last-child` for `:nth-last-child(0)`.
+For simplicity for commonly used selectors, you can substitute `:first-child` for `:nth-child(1)`, and `:last-child` for `:nth-last-child(1)`.
 
 You can also use `:only-child` to target elements who are the only child of the parent. For example,
 
