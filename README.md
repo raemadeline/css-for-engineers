@@ -4,3 +4,4 @@ Welcome to CSS For Engineers! This is a series of blog posts explaining concepts
 
 1. [A Crash Course in Selectors](articles/1_selectors.md)
 2. [Selectors Part 2: Pseudo-Classes](articles/2_pseudo-classes.md)
+3. [Selectors Part 3: SASS](articles/3_sass-selectors.md)
