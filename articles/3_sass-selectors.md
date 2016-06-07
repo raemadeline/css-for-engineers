@@ -46,8 +46,9 @@ For added specificity, you can also use this nesting with any parent and any des
 
 If you want to get more ambitious than just nesting children from parents, you can use an ampersand (`&`) as a concatenator within nested SASS structures. There are some other idiosyncrasies with the `&`, so we will go into each of them with more detail.
 
-![Image via css-tricks.com](../images/scss-to-css.gif) 
+![Code Compilation](../images/scss-to-css.gif)
 
+*Image via css-tricks.com*
 
 As a simple example, let's revisit the above example and how we could use an ampersand to accomplish the same task.
 
@@ -127,6 +128,44 @@ button:hover {
 
 Sure, you could just write out the compiled CSS and it would still work, but from a readability standpoint it is easier to keep track of code when it is nested well into organized components.
 
+### Modifier Classes
+
+The ampersand does not just concatenate selectors, it can also concatenate words to form selectors. Suppose you're building a complex design system that includes several different buttons, all of which have their own classes (currently in Addepar, we have `btn`, `btn-link`, `btn-icon`, and several others).
+
+You can write SCSS to keep all these styles together and well organized:
+
+```
+.btn {
+  /* base button styling here */
+
+  &-link {
+    /* styling for buttons that should look like links */
+  }
+
+  &-icon {
+    /* styling for buttons with icons in them */
+  }
+}
+```
+
+And as you could probably guess, this compiles nicely into:
+
+```
+.btn {
+  /* base button styling here */
+}
+
+.btn-link {
+  /* styling for buttons that should look like links */
+}
+
+.btn-icon {
+  /* styling for buttons with icons in them */
+}
+```
+
+This feature is especially useful if you're working on a project that uses [BEM notation](http://getbem.com/introduction/), which is a very useful system of organization, but we do not use it within Addepar so I won't cover it in depth here.
+
 ### Contextual Selecting
 
 In some ways, the `&` selector can be thought of as using `this` within SCSS instead of just thinking of it as a concatenator.
@@ -165,6 +204,34 @@ This is useful when you're styling things that have a core styling, but are modi
 
 Extending the notion of the ampersand (`&`) being treated as a `this`, you can also use the ampersand to do a cool trick to select all siblings:
 
-`& + &`
+Suppose you have a group of buttons in a navigation menu and you want all of them to line up nicely as a group, without having to add another class.
 
-### Modifier Classes
+```
+button {
+  /* normal button styling */
+  margin-right: 20px;
+
+  & + & {
+    margin-right: 0;
+  }
+}
+```
+
+This compiles into:
+
+```
+button {
+  /* normal button styling */
+  margin-right: 20px;
+}
+
+button + button {
+  margin-right: 0;
+}
+```
+
+[Codepen Demo](http://codepen.io/raemadeline/pen/gMaoaR)
+
+This trick isn't needed very often, but when it applies it can save you a bit of time and effort.
+
+**Next Up: Specificity in CSS Selectors**
