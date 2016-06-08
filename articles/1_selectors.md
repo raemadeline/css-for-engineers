@@ -12,7 +12,7 @@ The `.class` selector selects every element with that class name. It is meant fo
 
 For example, if you had this as your HTML
 
-```
+```html
 <div class="fun">
   <h1>Hooray!</h1>
   <p class="special fun">Hello World!</p>
@@ -21,7 +21,7 @@ For example, if you had this as your HTML
 
 and this as your CSS
 
-```
+```css
 .fun {
   padding: 10px;
   background-color: pink;
@@ -40,7 +40,7 @@ The `#id` selector selects the only element with that ID. It is meant to be the 
 
 For example, if you had this as your HTML
 
-```
+```html
 <div></div>
 <div></div>
 <div id="special"></div>
@@ -49,7 +49,7 @@ For example, if you had this as your HTML
 
 and this as your CSS
 
-```
+```css
 #special {
   background-color: yellow;
 }
@@ -67,7 +67,7 @@ You can also add specificity to these selectors by taking advantage of certain a
 
 In the CSS, this would look like:
 
-```
+```css
 input[type="text"] {
   /* styling goes here */
 }
@@ -94,7 +94,7 @@ You can accomplish a lot with just the simple selectors outlined above, but some
 
 For example, if you had this as your HTML
 
-```
+```html
 <p>
   <span>Hello</span>
   World
@@ -103,7 +103,7 @@ For example, if you had this as your HTML
 
 and this as your CSS
 
-```
+```css
 p span {
   font-weight: bold;
 }
@@ -115,7 +115,7 @@ You would get something that looked like this:
 
 You can also do something like this:
 
-```
+```css
 form * {
   /* Insert styling here */
 }
@@ -147,7 +147,7 @@ Examples:
 
 For example, if you had this as your HTML
 
-```
+```html
 <div>
   <span class="bar">
     <p>Hooray!</p>
@@ -159,7 +159,7 @@ For example, if you had this as your HTML
 
 and this as your CSS
 
-```
+```css
 div > p {
   font-weight: bold;
 }
@@ -173,7 +173,7 @@ Only the word "Hello" would be styled.
 
 For example, if you had this as your HTML
 
-```
+```html
 <p>Yay!</p>
 <div class="selected">
   <p>Hello</p>
@@ -183,7 +183,7 @@ For example, if you had this as your HTML
 
 and this as your CSS
 
-```
+```css
 .selected ~ p {
   font-weight: bold;
 }
@@ -197,7 +197,7 @@ The words "World" and "Yay!" would be bolded this time, because they are at the 
 
 For example, if you had this as your HTML
 
-```
+```html
 <div class="selected"></div>
 <h1>Testing</h1>
 <p>Yay!</p>
@@ -209,7 +209,7 @@ For example, if you had this as your HTML
 
 and this as your CSS
 
-```
+```css
 .selected + p {
   font-weight: bold;
 }
