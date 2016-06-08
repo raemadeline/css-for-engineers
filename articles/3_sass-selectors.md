@@ -44,7 +44,7 @@ For added specificity, you can also use this nesting with any parent and any des
 
 ## The Ampersand
 
-If you want to get more ambitious than just nesting children from parents, you can use an ampersand (`&`) as a concatenator within nested SASS structures. There are some other idiosyncrasies with the `&`, so we will go into each of them with more detail.
+At its most basic level, the ampersand (`&`) can be used as a concatenator within nested SASS structures. There are some other idiosyncrasies with the `&`, so we will go into each of them with more detail.
 
 ![Code Compilation](../images/scss-to-css.gif)
 
@@ -130,7 +130,7 @@ Sure, you could just write out the compiled CSS and it would still work, but fro
 
 ### Modifier Classes
 
-The ampersand does not just concatenate selectors, it can also concatenate words to form selectors. Suppose you're building a complex design system that includes several different buttons, all of which have their own classes (currently in Addepar, we have `btn`, `btn-link`, `btn-icon`, and several others).
+The ampersand does not just concatenate selectors, it can also concatenate words to form selectors. Suppose you're building a complex design system that includes several different buttons, all of which have their own classes (i.e. `btn`, `btn-large`, `btn-link`, etc).
 
 You can write SCSS to keep all these styles together and well organized:
 
@@ -138,12 +138,12 @@ You can write SCSS to keep all these styles together and well organized:
 .btn {
   /* base button styling here */
 
-  &-link {
-    /* styling for buttons that should look like links */
+  &-large {
+    /* styling for large buttons */
   }
 
-  &-icon {
-    /* styling for buttons with icons in them */
+  &-link {
+    /* styling for buttons that should look like links */
   }
 }
 ```
@@ -155,20 +155,20 @@ And as you could probably guess, this compiles nicely into:
   /* base button styling here */
 }
 
+.btn-large {
+  /* styling for large buttons */
+}
+
 .btn-link {
   /* styling for buttons that should look like links */
 }
-
-.btn-icon {
-  /* styling for buttons with icons in them */
-}
 ```
 
-This feature is especially useful if you're working on a project that uses [BEM notation](http://getbem.com/introduction/), which is a very useful system of organization, but we do not use it within Addepar so I won't cover it in depth here.
+This feature is especially useful if you're working on a project that uses [BEM notation](http://getbem.com/introduction/), or any other notation system for SASS that uses modifiers for added specificity.
 
 ### Contextual Selecting
 
-In some ways, the `&` selector can be thought of as using `this` within SCSS instead of just thinking of it as a concatenator.
+Beyond just concatenation, the `&` selector can be thought of as a variable that represents the parent. Effectively, the ampersand is a variation on `this` in other languages. It represents the selector that the ampersand is nested within.
 
 Suppose you wanted to style all headers to look a certain way, but if they're inside a panel, they should be **bold**.
 
@@ -185,7 +185,7 @@ h1 {
 }
 ```
 
-The above SCSS compiles into this CSS:
+In this case, the `&` is a variable for `h1`. The above SCSS compiles into this CSS:
 
 ```css
 h1 {
@@ -199,6 +199,38 @@ h1 {
 ```
 
 This is useful when you're styling things that have a core styling, but are modified given the context they are in.
+
+It is also important to be aware that the ampersand doesn't just represent its direct parent, but its entire lineage throughout its nesting structure.
+
+For example,
+
+```scss
+.foo {
+  .bar {
+    .baz & {
+      /* styles */
+    }
+  }
+}
+```
+
+You might think that this compiles to:
+
+```css
+.foo .baz .bar {
+  /* styles */
+}
+```
+
+But actually it compiles to:
+
+```css
+.baz .foo .bar {
+  /* styles */
+}
+```
+
+Because the ampersand represents `.foo .bar`. This can get confusing, especially in a complicated structure with many levels of nesting. It helps to keep the nesting levels as shallow as possible to avoid unintended styling. 
 
 ### Siblings
 
