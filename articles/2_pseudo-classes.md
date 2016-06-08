@@ -10,7 +10,7 @@ All pseudo-selectors are displayed with a colon (`:`) as its prefix. You might a
 
 Pseudo-classes are classes that get applied to DOM elements when they are in a certain state, like when a mouse is hovering over the element. This class doesn't show up in the HTML. They can be styled like this:
 
-```
+```css
 a:hover {
   text-decoration: underline;
 }
@@ -62,7 +62,7 @@ Why would you want to use this instead of directly targeting the root element it
 
 Let's assume we have an HTML page that looks like this
 
-```
+```html
 <ul class="fruits-vegetables">
   <li>Avocado</li>
   <li>Beets</li>
@@ -77,7 +77,7 @@ Let's assume we have an HTML page that looks like this
 
 Say we wanted to specifically target `Beets`, we could use this as our CSS:
 
-```
+```css
 .vegetables :nth-child(2) {
   color: purple;
 }
@@ -93,7 +93,7 @@ For simplicity for commonly used selectors, you can substitute `:first-child` fo
 
 You can also use `:only-child` to target elements who are the only child of the parent. For example,
 
-```
+```html
 <div>
   <p>Hooray!</p>
 </div>
@@ -105,7 +105,7 @@ You can also use `:only-child` to target elements who are the only child of the 
 
 with this as your CSS:
 
-```
+```css
 p:only-child {
   background-color: blue;
 }
@@ -117,7 +117,7 @@ only the line `Hooray!` would be highlighted blue.
 
 `:nth-of-type(N)` is very similar to `:nth-child(N)`, but with the added specificity of type-checking. Say you are styling a form that looks roughly like this:
 
-```
+```html
 <form>
   <label>Label 1</label>
   <input type="text"></input>
@@ -133,7 +133,7 @@ only the line `Hooray!` would be highlighted blue.
 
 You could style the second label like this:
 
-```
+```css
 label:nth-of-type(2) {
   color: orange;
 }
@@ -147,7 +147,7 @@ There are also other corresponding selectors, `:first-of-type`, `:last-of-type`,
 
 This selector refers to any element who does not contain any inner HTML. So with this HTML:
 
-```
+```html
 <div></div>
 <div>Hello!</div>
 ```
@@ -182,7 +182,7 @@ Similar to `::first-letter`, this selects the first line in a block of text. Wha
 
 The `::before` element is used to add content at the beginning of an element. This content isn't really in the DOM (so be mindful of accessibility!). For it to appear, you must define a `content` property on the selector like this:
 
-```
+```css
 h1::before {
   content: "Hello, ";
 }
@@ -210,7 +210,7 @@ This one is for checkboxes and radio elements. It is triggered when the input el
 
 This one is specifically for number inputs. If this is your HTML:
 
-```
+```html
 <input type="number" min="5" max="10">
 ```
 
