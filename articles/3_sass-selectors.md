@@ -15,7 +15,7 @@ One of the most annoying parts about writing vanilla CSS is that it's very hard 
 
 In SASS, you can nest selectors like this:
 
-```
+```scss
 .parent {
   /* styling goes here */
 
@@ -27,7 +27,7 @@ In SASS, you can nest selectors like this:
 
 And it will get compiled into CSS that looks like this:
 
-```
+```css
 .parent {
   /* styling goes here */
 }
@@ -52,7 +52,7 @@ If you want to get more ambitious than just nesting children from parents, you c
 
 As a simple example, let's revisit the above example and how we could use an ampersand to accomplish the same task.
 
-```
+```scss
 .parent {
   & .descendant {
     /* styles */
@@ -62,7 +62,7 @@ As a simple example, let's revisit the above example and how we could use an amp
 
 Is the exact same as
 
-```
+```scss
 .parent {
   .descendant {
     /* styles */
@@ -72,7 +72,7 @@ Is the exact same as
 
 Because they both compile to
 
-```
+```css
 .parent .descendant {
   /* styles */
 }
@@ -88,7 +88,7 @@ See the [codepen demo](http://codepen.io/raemadeline/pen/ZObaba) for a real exam
 
 You might have noticed that this demo would have worked just as well if you never nested the styles
 
-```
+```css
 .demo {
   /* demo styles */
 }
@@ -104,7 +104,7 @@ And within that example, this is true. There's no need (and often its not desire
 
 If you had noticed the styling on the button in the [codepen demo](http://codepen.io/raemadeline/pen/ZObaba) above, you'd see that I used the `&` selector to nest the pseudo-selectors for the button within the styling for the button.
 
-```
+```scss
 button {
   /* normal styles */
 
@@ -116,7 +116,7 @@ button {
 
 Compiles into
 
-```
+```css
 button {
   /* normal styles */
 }
@@ -134,7 +134,7 @@ The ampersand does not just concatenate selectors, it can also concatenate words
 
 You can write SCSS to keep all these styles together and well organized:
 
-```
+```scss
 .btn {
   /* base button styling here */
 
@@ -150,7 +150,7 @@ You can write SCSS to keep all these styles together and well organized:
 
 And as you could probably guess, this compiles nicely into:
 
-```
+```css
 .btn {
   /* base button styling here */
 }
@@ -174,7 +174,7 @@ Suppose you wanted to style all headers to look a certain way, but if they're in
 
 You can use SCSS and `&` to do this:
 
-```
+```scss
 h1 {
   font-size: 24px;
   font-family: Helvetica, sans-serif;
@@ -187,7 +187,7 @@ h1 {
 
 The above SCSS compiles into this CSS:
 
-```
+```css
 h1 {
   font-size: 24px;
   font-family: Helvetica, sans-serif;
@@ -206,7 +206,7 @@ Extending the notion of the ampersand (`&`) being treated as a `this`, you can a
 
 Suppose you have a group of buttons in a navigation menu and you want all of them to line up nicely as a group, without having to add another class.
 
-```
+```scss
 button {
   /* normal button styling */
   margin-right: 20px;
@@ -219,7 +219,7 @@ button {
 
 This compiles into:
 
-```
+```css
 button {
   /* normal button styling */
   margin-right: 20px;
