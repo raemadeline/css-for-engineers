@@ -22,13 +22,23 @@ Flex is generally supported by most major browsers, but depending on what you're
 
 In addition to adding the property `display: flex` to your parent element, you have to do a bit more work to get the layout of your dreams to become a reality. Additional properties are required on the parent (and often the child elements as well).
 
+Success in building flex layouts largely comes from practice, and seeing the code in action. I strongly encourage you to check out the codepen demo's for each property and to tinker around with them and see how the layout changes. 
+
 ### The Parent Element
 
 Below are all the additional `flex` properties you can apply to the parent element. Note that none of these properties really work unless you include the property `display: flex` in your declaration.
 
 #### `flex-direction`
 
+This determines the layout's main axis, row or column. It also allows you to choose if you want the elements to move forwards or backwards. The options are `row`, `row-reverse`, `column`, `column-reverse`. The default value is `row`, meaning the elements flow from left to right.
+
+[Codepen Demo](http://codepen.io/raemadeline/pen/oLLawL)
+
 #### `flex-wrap`
+
+When you have too many elements and they all do not fit along the main axis in one line, you are given the choice as to whether they wrap around to a second line. By default, the value of `flex-wrap` is `nowrap`, so the elements will do their best to fit in the confined space. You can also set the value to `wrap`, which will start a second line after the first following the direction, and `wrap-reverse`, which will a second line before the first.
+
+[Codepen Demo](http://codepen.io/raemadeline/pen/jrreaQ)
 
 #### `flex-flow`
 
@@ -40,9 +50,13 @@ flex-flow: <'flex-direction'> || <'flex-wrap'>
 
 #### `justify-content`
 
+[Codepen Demo](http://codepen.io/raemadeline/pen/BzzqxV)
+
 #### `align-items`
 
 #### `align-content`
+
+`align-content` is the same as `align-items` for the axis perpendicular to the main axis.
 
 ### The Child Elements
 
