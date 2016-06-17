@@ -68,7 +68,7 @@ http://codepen.io/raemadeline/pen/WxGeNd
 
 `align-content` is the same as `align-items`, but it handles the full range of child elements as a block instead of arranging each element in their line. For a better explanation, see the visual below (thanks css-tricks.com)
 
-![align-content](../images/align-content.svg)
+![align-content](../images/align-content.png)
 
 ### The Child Elements
 
@@ -82,7 +82,7 @@ This overrides the ordering of the elements as determined by the parent. By defa
 
 By default, assuming all `flex` children have the same size internally, they will all grow an equal amount to fill the remaining space left in the parent (assuming their `width` and `height` have not yet been fixed). This property determines the priority of the child to fill up more space. All children have a default of `flex-grow: 1;`, so if a child is given `flex-grow: 2`, it will take up twice as much remaining space as its siblings.
 
-![flex-grow](../images/flex-grow.svg)
+![flex-grow](../images/flex-grow.png)
 
 #### `flex-shrink`
 
