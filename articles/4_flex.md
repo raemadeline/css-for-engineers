@@ -2,11 +2,11 @@
 
 ## Displays
 
-A commonly used property in CSS is `display`. This specifies how the element is displayed (if it is shown at all). By default, the display value is either `block` or `inline`, depending on the element (inline elements are things like `a`s, `p`s, `span`s, etc, and block elements are things like `div`s and `form`s)
+A commonly used property in CSS is `display`. This specifies how the element is displayed (if it is shown at all). By default, the display value is either `block` or `inline`, depending on the element (inline elements are things like `a`s, `img`s, `span`s, etc, and block elements are things like `div`s and `form`s)
 
 There is also `display: inline-block`, which treats the element as `inline`, but the element can have a defined width and height, which `inline` elements cannot do on their own.
 
-To hide an element, you set it to `display: none`, this will remove the element from the page. The difference between `display: none` and `opacity: 0` (both of which hide the element) is that changing `opacity: 0` maintains the space the element takes up, whereas `display: none` does not. The element will take up no space.
+To hide an element, you set it to `display: none`, this will remove the element from the page. The difference between `display: none` and `opacity: 0` (both of which hide the element) is that changing `opacity: 0` maintains the space the element takes up, whereas `display: none` does not. The element will take up no space. `visibility: hidden` does the same thing as `opacity: 0`, but the element won't show up in the tab order and it won't respond to events (click, keypress, etc).
 
 For a demo of each of these `display`s, see this [codepen demo](http://codepen.io/raemadeline/pen/NNybrP)
 
@@ -22,7 +22,7 @@ Flex is generally supported by most major browsers, but depending on what you're
 
 In addition to adding the property `display: flex` to your parent element, you have to do a bit more work to get the layout of your dreams to become a reality (unless all the default values work out in your favor!). Additional properties are required on the parent, and often the child elements as well.
 
-Success in building flex layouts largely comes from practice, and seeing the code in action. I strongly encourage you to check out the codepen demo's for each property and to tinker around with them and see how the layout changes.
+Success in building flex layouts largely comes from practice, and seeing the code in action. I strongly encourage you to check out the codepen demos for each property and to tinker around with them and see how the layout changes.
 
 ### The Parent Element
 
@@ -80,13 +80,13 @@ This overrides the ordering of the elements as determined by the parent. By defa
 
 #### `flex-grow`
 
-By default, assuming all `flex` children have the same size internally, they will all grow an equal amount to fill the remaining space left in the parent (assuming their `width` and `height` have not yet been fixed). This property determines the priority of the child to fill up more space. All children have a default of `flex-grow: 1;`, so if a child is given `flex-grow: 2`, it will take up twice as much remaining space as its siblings.
+By default, assuming all `flex` children have the same size internally, they will all grow an equal amount to fill the remaining space left in the parent (assuming their `width` and `height` have not yet been fixed). This property determines the priority of the child to fill up more space. All children have a default of `flex-grow: 0` (will not grow), so if a child is given `flex-grow: 1`, it will take up all the remaining space unless its siblings are also given `flex-grow: 1`.
 
 ![flex-grow](../images/flex-grow.png)
 
 #### `flex-shrink`
 
-`flex-shrink` is the complement of `flex-grow`. In the case when the parent is too small to comfortably fit all the children, any child with a `flex-shrink` property that's greater than zero will shrink to allow all of the other children to fit. By default, all `flex` children have `flex-shrink: 0`, so this will not happen unless you explicitly declare it.
+`flex-shrink` is the complement of `flex-grow`. In the case when the parent is too small to comfortably fit all the children, any child with a `flex-shrink` property that's greater than zero will shrink to allow all of the other children to fit. By default, all `flex` children have `flex-shrink: 1`, so if you want them to stay the same size you must explicitly set them to `flex-shrink: 0`.
 
 #### `flex-basis`
 
@@ -101,6 +101,10 @@ This is a shorthand to combine `flex-grow`, `flex-shrink`, and `flex-basis`. The
   flex: <'flex-grow'> || <'flex-shrink'> || <'flex-basis'>
 }
 ```
+
+You can also just do `flex: 1`, which is a shorthand for `flex: 1 1 0`, meaning the element will grow and shrink as it needs to.
+
+`flex: none` is shorthand for `flex: 0 0 auto`, which means the element will be immune to all the flex magic going on around it. 
 
 #### `align-self`
 
