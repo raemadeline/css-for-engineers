@@ -5,4 +5,4 @@ Welcome to CSS For Engineers! This is a series of blog posts explaining concepts
 1. [A Crash Course in Selectors](articles/1_selectors.md)
 2. [Selectors Part 2: Pseudo-Classes](articles/2_pseudo-classes.md)
 3. [Selectors Part 3: SASS](articles/3_sass-selectors.md)
-4. [Flex](articles/4_flex.md)
+4. [An Introduction to Flex :muscle:](articles/4_flex.md)

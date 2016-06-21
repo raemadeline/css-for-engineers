@@ -1,4 +1,4 @@
-# Flex
+# An Introduction to Flex :muscle:
 
 ## Displays
 
@@ -104,7 +104,7 @@ This is a shorthand to combine `flex-grow`, `flex-shrink`, and `flex-basis`. The
 
 You can also just do `flex: 1`, which is a shorthand for `flex: 1 1 0`, meaning the element will grow and shrink as it needs to.
 
-`flex: none` is shorthand for `flex: 0 0 auto`, which means the element will be immune to all the flex magic going on around it. 
+`flex: none` is shorthand for `flex: 0 0 auto`, which means the element will be immune to all the flex magic going on around it.
 
 #### `align-self`
 
