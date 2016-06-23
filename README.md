@@ -6,3 +6,4 @@ Welcome to CSS For Engineers! This is a series of blog posts explaining concepts
 2. [:ghost: Selectors Part 2: Pseudo-Classes](articles/2_pseudo-classes.md)
 3. [:information_desk_person: Selectors Part 3: SASS](articles/3_sass-selectors.md)
 4. [:muscle: An Introduction to Flex](articles/4_flex.md)
+5. [:wrench: SASS Functions and Data Structures](articles/5_sass_functions.md)
