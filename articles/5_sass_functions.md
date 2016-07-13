@@ -67,7 +67,7 @@ There are a bunch of standard list operations in SASS (`length`, `index`, `appen
 
 ```scss
 // $result = "FL"
-$result = nth($states, 4);
+$result: nth($states, 4);
 ```
 
 **Note that SASS lists are 1-indexed.** It's really annoying.
@@ -82,7 +82,7 @@ $regions: (
 );
 
 // Once again, $result = "FL"
-$result = nth(nth($regions, 2), 2);
+$result: nth(nth($regions, 2), 2);
 ```
 
 ### Maps
@@ -99,25 +99,88 @@ $widget: (
 
 SASS is pretty loose with variable types, so these values in each key-value pair can be pretty much anything, strings values, other lists or maps, etc.
 
-## Functions
+Similar to lists, you can also do all the standard map operations in SASS (`$map-get`, `$map-remove`, `$map-keys`, `$map-values`, `$map-has-key`, etc.)
+Here is a [link](http://sass-lang.com/documentation/Sass/Script/Functions.html) to their documentation.
 
-### Control Flow
+## Mixins and Functions
 
-@while
+For the most part, anything you can do in other languages you can do using SASS functions. You get all the standard control directives (`@while`, `@for`, `@if`, etc.)
 
-@for
+Here's an example using the `$states` list above.
 
-@if / @else if / @else
+```scss
+@mixin states($states, $regions) {
 
-@each
+  $region-colors: red, blue, green;
 
-### List Operations
+  @each $state in $states {
+    @for $i from 1 through 3 {
+      $region: nth($regions, $i);
 
-length, nth, join, append, index (starts at 1!)
+      @if index($region, $state) {
+        .#{$state}-label {
+          color: nth($region-colors, $i);
+        }
+      }
+    }
+  }
+}
+```
 
-### Map Operations
+Here is how that mixin would be added to a stylesheet.
 
-map-get, map-merge, map-remove, map-keys, map-values, map-has-key
+```scss
+.container {
+  @include states($states, $regions);
+}
+```
+
+This will result in the following CSS.
+
+```scss
+.container {
+  .AL-label {
+    color: blue;
+  }
+
+  .DC-label {
+    color: red;
+  }
+
+  ...
+}
+```
+
+Here's a [codepen demo](http://codepen.io/raemadeline/pen/QEOzbG) to show that mixin in use.
+
+For the most part mixins and functions are interchangeable, but their syntax is slightly different. Mixins are `@include`-ed and functions are called to replace values. Here's the same mixin above but replaced by a function. Instead of declaring the style directly in the mixin, the color is returned as a value.
+
+```scss
+@function get-region-color($state) {
+  $region-colors: red, blue, green;
+
+  @for $i from 1 through 3 {
+    $region: nth($regions, $i);
+
+    @if index($region, $state) {
+      @return nth($region-colors, $i);
+    }
+  }
+
+  @return black;
+}
+```
+
+Then to get the color, the function needs to be called
+
+```scss
+#NY {
+  color: get-region-color("NY");
+}
+```
+
+
+Here is an identical [codepen demo](http://codepen.io/raemadeline/pen/Krybaq) using the function instead of the mixin.
 
 ## In-Depth Example: Refactoring Z-Indexes
 
