@@ -1,4 +1,4 @@
-# A Crash Course in Selectors: Part 3
+# :information_desk_person: A Crash Course in Selectors: Part 3
 
 Up until this point, I have only been covering features that can be used in pure, out of the box CSS. While CSS can do a lot on its own, there are a bunch of really powerful pre-processors that compile into CSS that allow developers to iterate faster, build more complex systems with less code, and save a lot of time and energy.
 
@@ -230,7 +230,7 @@ But actually it compiles to:
 }
 ```
 
-Because the ampersand represents `.foo .bar`. This can get confusing, especially in a complicated structure with many levels of nesting. It helps to keep the nesting levels as shallow as possible to avoid unintended styling. 
+Because the ampersand represents `.foo .bar`. This can get confusing, especially in a complicated structure with many levels of nesting. It helps to keep the nesting levels as shallow as possible to avoid unintended styling.
 
 ### Siblings
 

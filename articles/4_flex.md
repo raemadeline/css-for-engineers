@@ -1,4 +1,4 @@
-# An Introduction to Flex :muscle:
+# :muscle: An Introduction to Flex
 
 ## Displays
 

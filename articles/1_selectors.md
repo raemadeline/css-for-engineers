@@ -1,4 +1,4 @@
-# A Crash Course in CSS Selectors: Part 1
+# :ok_hand: A Crash Course in CSS Selectors: Part 1
 
 Welcome to CSS For Engineers! This is a series of blog posts explaining concepts and features of CSS (and the preprocessor SASS) in a way that relates these new concepts back to already-familiar software engineering principles.
 
