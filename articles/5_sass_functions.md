@@ -147,6 +147,9 @@ This will result in the following CSS.
     color: red;
   }
 
+  .DE-label {
+    color: red;
+  }
   ...
 }
 ```
@@ -184,7 +187,25 @@ Here is an identical [codepen demo](http://codepen.io/raemadeline/pen/Krybaq) us
 
 ## In-Depth Example: Refactoring Z-Indexes
 
+Last month, I refactored the way we do `z-index`es at Addepar to leverage the powers of SASS. This refactor encompassed all of the concepts I discussed above, so I thought it would make a good case study.
+
 ### What is a `z-index`?
+
+The `z-index` of an element refers to its positioning in the z-axis. If you think of the x- and y- axes as the left-right / up-down directions on the screen, the z-axis is the direction going into and out of the screen. Another way of thinking about it is the way the element layers above or below other elements on the page.
+
+![z-index](../images/z-index.gif)
+
+*Image courtesy of http://www.annyhe.com/*
+
+Something to note that is not directly related to the larger topic of this post, but is related to `z-index`es: When applying a `z-index` to elements nested within each other, the child element's maximum place in the layering order is that of its parent, no matter how high the child element's `z-index` is.
+
+For a visual representation of how that looks (Assume that boxes 2 and 3 are children of box 1):
+
+![stacking order](../images/stacking1.png)
+
+*Image courtesy of webdesign.tutsplus.com*
+
+For this reason, its important to avoid putting `z-index`es on elements that don't absolutely need them, as it can lead to some unintended consequences.
 
 ### Why did I need to refactor them?
 
@@ -205,4 +226,112 @@ While these initial values are fairly well organized, this quickly fell into cha
 
 ### How did I fix it?
 
+Now, our `z-index`es are organized in a nested map structure based on where they appear in the app.
+
+```scss
+$z-layers: (
+  'base': 0,
+  'input': 1,
+  'tool-container': 3,
+  'loading-animation': 999,
+  'navbar': 1000,
+  'modal': 1050,
+  'time-series': 1060,
+  'customer-support': 1070,
+  'popover': 1080,
+  'tooltip': 1090,
+  'alert': 2000,
+  'context-chooser': (
+    'base': 2,
+    'collapse': 4
+  ),
+  'icons': (
+    'caret': 2,
+    'sort': 2,
+    'recon-expand-table': 100
+  ),
+  'portal': (
+    'header': 3,
+    'nav': 10
+  ),
+  'report': (
+    'widgets': 2,
+    'footer': 10,
+    'container': 100,
+    'drop-zone': 110,
+    'header-cover': 400,
+    'nav': 500,
+    'item-outline': 1000,
+    'text-overflow': 1120,
+    'page': (
+      'linked-cue': 500
+    ),
+    'table': (
+      'squash-column': 3
+    )
+  )
+);
+```
+
+I also created this function to access the values. This function takes any number of arguments, and traverses the structure by calling `map-get` and `map-deep-get`, an internal function outlined below.
+
+```scss
+@function z($first-layer, $secondary-layers...) {
+
+  @if ($first-layer == null) {
+    @return 0;
+  }
+
+  @if (length($secondary-layers) < 1) {
+    $layer: map-get($z-layers, $first-layer);
+
+    @if (type-of($layer) == 'map') {
+      @return map-deep-get($z-layers, $first-layer, 'base');
+    } @else {
+      @return map-get($z-layers, $first-layer);
+    }
+
+  } @else {
+    @return map-deep-get($z-layers, $first-layer, $secondary-layers...);
+  }
+}
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+```
+
+Then in any case when an element needs a `z-index`, it can be added like this:
+
+```scss
+.popover {
+  z-index: z('popover');
+}
+
+.report-page-linked-cue {
+  z-index: z('report', 'page', 'linked-cue');
+}
+```
+
 ### Why is this better?
+
+By using a nested structure, it is easier to see the overall layering structure and keep track of it.
+
+Another benefit is that you can do relative `z-index`es. When I started this refactor, I started by taking an inventory of every `z-index` in our entire CSS system. There were a lot of random magic number values floating around, and most of them were one or two off from a base value. This is because they wanted an element to be either directly above or below an adjacent element.
+
+Now, instead of giving elements `.foo` and `.bar` `z-index`es of `x` and `x+1`,
+you can now do
+
+```scss
+.bar {
+  z-index: z('foo') + 1;
+}
+```
+
+which makes it much more clear to anyone reading this code what this declaration is trying to accomplish.
+
+Leveraging SASS allowed us to take a messy disorganized system and cut through the chaos, leaving behind a much more sustainable framework.
