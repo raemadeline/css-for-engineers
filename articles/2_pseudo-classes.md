@@ -1,4 +1,4 @@
-# A Crash Course in Selectors: Part 2
+# :ghost: A Crash Course in Selectors: Part 2
 
 ## What are Pseudo-Classes?
 
