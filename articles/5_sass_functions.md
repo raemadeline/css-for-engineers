@@ -2,7 +2,7 @@
 
 As you've probably noticed by now, CSS isn't really a *programming language* by most people's standards. You can do a lot of really cool things, but you cannot do most of the things you learned in your Intro to Computer Science class (for loops, if/else, etc), and this bothers a lot of people who are used to thinking that way.
 
-Enter [SASS](http://sass-lang.com/). I discussed it briefly in my previous article about [selectors](3_sass-selectors.md).The long and short of it is that this preprocessor has *superpowers*, and by that I mean it has one superpower and it is to magically make CSS into a "real" programming language (note my sarcasm - CSS is a real language and anyone who says otherwise is mean and wrong).
+Enter [SASS](http://sass-lang.com/). I discussed it briefly in my previous article about [selectors](3_sass-selectors.md).The long and short of it is that this preprocessor has *superpowers*, and by that I mean it has one superpower and it is to magically give CSS the ability to do all the things we're accustomed to with other languages.
 
 ## Variables
 
@@ -22,7 +22,37 @@ And here is how you use it in styling:
 }
 ```
 
+You can make just about anything into a variable in SASS, strings, colors, numbers, border styling, etc. Be careful though, because SASS isn't strict with variable types and it can get messy. To remedy this, it is always a good idea to be specific when naming variables. `$special-button` could refer to anything, but `$special-button-height` is much easier to recognize.
+
+### Scope
+
+There are both global and local variables. Global variables are defined outside of a selector and can be referenced anywhere. Local variables are defined inside a selector (typically a function or mixin) and can only be accessed inside that function. This is similar behavior to most other programming languages.
+
+```scss
+@mixin button-style {
+  $button-bg-color: yellow;
+  background-color: $button-bg-color;
+}
+```
+
+It's also worth mentioning that local variables can be defined within a selector can be accessed by any selector nested inside it.
+
+```scss
+.container {
+  $bg-color: hotpink;
+
+  .inner-container {
+    background-color: $bg-color;
+  }
+}
+```
+
+The example above will not throw a `Undefined variable` error.
+
+
 ### Lists
+
+In the case when you have many variables that are all related to each other, you can define them as a list.
 
 ```scss
 $states: (
@@ -33,7 +63,16 @@ $states: (
 );
 ```
 
-+ multidimensional
+There are a bunch of standard list operations in SASS (`length`, `index`, `append`, `join`, etc.). The way to access individual values in the list is using `nth`:
+
+```scss
+// $result = "FL"
+$result = nth($states, 4);
+```
+
+**Note that SASS lists are 1-indexed.** It's really annoying.
+
+You can also nest lists inside each other, and treat them the same way you would treat multidimensional arrays in other languages.
 
 ```scss
 $regions: (
@@ -41,27 +80,24 @@ $regions: (
   ( "AL", "FL", "GA", "KY", "LA", "MS", "NC", "SC", "TN", "VA", "WV" ),
   ( "IA", "IL", "IN", "MI", "MO", "OH" )
 );
+
+// Once again, $result = "FL"
+$result = nth(nth($regions, 2), 2);
 ```
 
 ### Maps
 
-<!-- Come up with better example -->
+In addition to lists, we can also set up key-value pairs and maps in SASS. Here's an example of the syntax:
+
 ```scss
-$name: (
-  "testing": "hello!",
-  "testing2": "world"
+$widget: (
+  "color": "blue",
+  "width": 100px,
+  "height": 400px
 );
 ```
 
-can get more complicated
-
-```scss
-$mega-social: (
-  "facebook":		( content: "\f204", coords: 0 0 ),
-  "twitter":		( content: "\f202", coords: 0 -64px ),
-  "linkedin":		( content: "\f207", coords: 0 -128px )
-);
-```
+SASS is pretty loose with variable types, so these values in each key-value pair can be pretty much anything, strings values, other lists or maps, etc.
 
 ## Functions
 
