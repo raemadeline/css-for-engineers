@@ -2,7 +2,7 @@
 
 As you've probably noticed by now, CSS isn't really a *programming language* by most people's standards. You can do a lot of really cool things, but you cannot do most of the things you learned in your Intro to Computer Science class (for loops, if/else, etc), and this bothers a lot of people who are used to thinking that way.
 
-Enter [SASS](http://sass-lang.com/). I discussed it briefly in my previous article about [selectors](3_sass-selectors.md).The long and short of it is that this preprocessor has *superpowers*, and by that I mean it has one superpower and it is to magically give CSS the ability to do all the things we're accustomed to with other languages.
+Enter [SASS](http://sass-lang.com/). I discussed it briefly in my previous article about [selectors](3_sass-selectors.md). The long and short of it is that this preprocessor has *superpowers*, and by that I mean it has one superpower and it is to magically give CSS the ability to do all the things we're accustomed to with other languages.
 
 ## Variables
 
@@ -52,7 +52,7 @@ The example above will not throw a `Undefined variable` error.
 
 ### Lists
 
-In the case when you have many variables that are all related to each other, you can define them as a list.
+In the case when you have many variables that are all related to each other, you can define them as a list. You can define one-dimensional lists without parentheses, but it is easier to read and understand when they are included.
 
 ```scss
 $states: (
@@ -156,7 +156,7 @@ This will result in the following CSS.
 
 Here's a [codepen demo](http://codepen.io/raemadeline/pen/QEOzbG) to show that mixin in use.
 
-For the most part mixins and functions are interchangeable, but their syntax is slightly different. Mixins are `@include`-ed and functions are called to replace values. Here's the same mixin above but replaced by a function. Instead of declaring the style directly in the mixin, the color is returned as a value.
+For the most part mixins and functions are interchangeable, but their syntax is slightly different. Mixins are `@include`-ed, and functions are called to replace values. Here's the same mixin above but replaced by a function. Instead of declaring the style directly in the mixin, the color is returned as a value.
 
 ```scss
 @function get-region-color($state) {
@@ -273,6 +273,10 @@ $z-layers: (
 );
 ```
 
+You'll notice a `base` value for some nested maps. This is considered the "default" value for that section.
+
+Many of the values in this map may seem arbitrary, and this is because I was careful to avoid messing with too many values. This refactor was mainly to keep the `z-index`es organized, and as we refactor each component we can adjust the values in this map accordingly. 
+
 I also created this function to access the values. This function takes any number of arguments, and traverses the structure by calling `map-get` and `map-deep-get`, an internal function outlined below.
 
 ```scss
@@ -304,6 +308,8 @@ I also created this function to access the values. This function takes any numbe
   @return $map;
 }
 ```
+
+The intention of `z()` was to always return a reasonable `z-index` with minimal arguments. The first block of code just returns `0` when its called with no arguments, because the fewer elements that have defined `z-index`es the better. The next block addresses when only one argument is passed in. If that argument is the key for a map, it returns the default value, otherwise it returns the value associated with that key. In the case where there are two or more arguments, it calls `map-deep-get`, which traverses the map following each key in order until it returns the final value.
 
 Then in any case when an element needs a `z-index`, it can be added like this:
 
