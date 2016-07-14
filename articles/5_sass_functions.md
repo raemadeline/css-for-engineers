@@ -12,11 +12,7 @@ Heres a variable:
 
 ```scss
 $maddies-favorite-color: #e1b719;
-```
 
-And here is how you use it in styling:
-
-```scss
 .foo {
   background-color: $maddies-favorite-color;
 }
