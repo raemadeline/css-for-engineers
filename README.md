@@ -7,3 +7,4 @@ Welcome to CSS For Engineers! This is a series of blog posts explaining concepts
 3. [:information_desk_person: Selectors Part 3: SASS](articles/3_sass_selectors.md)
 4. [:muscle: An Introduction to Flex](articles/4_flex.md)
 5. [:wrench: SASS Functions and Data Structures](articles/5_sass_functions.md)
+6. [:no_good: Why you should never use `!important`](articles/6_important.md)
