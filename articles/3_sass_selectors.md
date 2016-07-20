@@ -46,7 +46,7 @@ For added specificity, you can also use this nesting with any parent and any des
 
 At its most basic level, the ampersand (`&`) can be used as a concatenator within nested SASS structures. There are some other idiosyncrasies with the `&`, so we will go into each of them with more detail.
 
-![Code Compilation](../images/scss-to-css.gif)
+![Code Compilation](../images/scss_to_css.gif)
 
 *Image via css-tricks.com*
 
