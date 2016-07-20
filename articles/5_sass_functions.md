@@ -2,7 +2,7 @@
 
 As you've probably noticed by now, CSS isn't really a *programming language* by most people's standards. You can do a lot of really cool things, but you cannot do most of the things you learned in your Intro to Computer Science class (for loops, if/else, etc), and this bothers a lot of people who are used to thinking that way.
 
-Enter [SASS](http://sass-lang.com/). I discussed it briefly in my previous article about [selectors](3_sass-selectors.md). The long and short of it is that this preprocessor has *superpowers*, and by that I mean it has one superpower and it is to magically give CSS the ability to do all the things we're accustomed to with other languages.
+Enter [SASS](http://sass-lang.com/). I discussed it briefly in my previous article about [selectors](3_sass_selectors.md). The long and short of it is that this preprocessor has *superpowers*, and by that I mean it has one superpower and it is to magically give CSS the ability to do all the things we're accustomed to with other languages.
 
 ## Variables
 
@@ -193,7 +193,7 @@ Last month, I refactored the way we do `z-index`es at Addepar to leverage the po
 
 The `z-index` of an element refers to its positioning in the z-axis. If you think of the x- and y- axes as the left-right / up-down directions on the screen, the z-axis is the direction going into and out of the screen. Another way of thinking about it is the way the element layers above or below other elements on the page.
 
-![z-index](../images/z-index.gif)
+![z-index](../images/z_index.gif)
 
 *Image courtesy of http://www.annyhe.com/*
 
@@ -201,7 +201,7 @@ Something to note that is not directly related to the larger topic of this post,
 
 For a visual representation of how that looks (Assume that boxes 2 and 3 are children of box 1):
 
-![stacking order](../images/stacking1.png)
+![stacking order](../images/stacking.png)
 
 *Image courtesy of webdesign.tutsplus.com*
 
@@ -275,7 +275,7 @@ $z-layers: (
 
 You'll notice a `base` value for some nested maps. This is considered the "default" value for that section.
 
-Many of the values in this map may seem arbitrary, and this is because I was careful to avoid messing with too many values. This refactor was mainly to keep the `z-index`es organized, and as we refactor each component we can adjust the values in this map accordingly. 
+Many of the values in this map may seem arbitrary, and this is because I was careful to avoid messing with too many values. This refactor was mainly to keep the `z-index`es organized, and as we refactor each component we can adjust the values in this map accordingly.
 
 I also created this function to access the values. This function takes any number of arguments, and traverses the structure by calling `map-get` and `map-deep-get`, an internal function outlined below.
 

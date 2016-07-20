@@ -217,4 +217,4 @@ and this as your CSS
 
 Only the word "World" would be bolded. Take special note that "Yay!" is not bolded because there is another element between it and `<div class="selected">`.
 
-**Keep an eye out for [Part 2](2_pseudo-classes.md) of this blog post where I will discuss pseudo elements.**
+**Keep an eye out for [Part 2](2_pseudo_classes.md) of this blog post where I will discuss pseudo elements.**
