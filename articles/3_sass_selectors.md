@@ -266,4 +266,4 @@ button + button {
 
 This trick isn't needed very often, but when it applies it can save you a bit of time and effort.
 
-**Next Up: Specificity in CSS Selectors**
+**Next Up: [Talking about Flexible Layouts](4_flex.md)**

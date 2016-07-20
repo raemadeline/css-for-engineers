@@ -233,4 +233,4 @@ These pseudo-classes can be used with combinators (check out [Part 1](1_selector
 
 This whole post may seem like a lot, but there are actually way more I didn't cover (mostly because they aren't used very often). If this is something that interests you, I recommend checking out the [documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes), and trying some out on your next project.
 
-**Keep an eye out for [Part 3](3_sass-selectors.md) of this blog post where I will discuss more advanced selectors that can be used with SASS (a beautiful CSS preprocessor).**
+**Keep an eye out for [Part 3](3_sass_selectors.md) of this blog post where I will discuss more advanced selectors that can be used with SASS (a beautiful CSS preprocessor).**
