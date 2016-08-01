@@ -17,8 +17,7 @@ div {
 
 The `<div>` is going to be blue. Even though you told it to be green.
 
-This `!important` keyword is extremely powerful... <!-- finish this sentence! -->
-
+This `!important` keyword is extremely powerful, but with great power comes great responsibility.
 
 ## In what order do styles get applied in CSS?
 
@@ -52,17 +51,87 @@ For a visual representation of how this looks:
 
 ## Specificity
 
+A single element can be targeted in CSS using a bunch of different combinations of selectors, depending on its place within the DOM (for a refresher on selectors, read [this](1_selectors.md), [this](2_pseudo_classes.md), and [this](3_sass_selectors.md)). Depending on the selector you use to target an element with styling, the level of *specificity* of those styles can vary. Higher levels of specificity overwrite lower levels. The cascading effect outlined in the previous section is applied from lower specificity levels to higher, and then within each level.
+
 ### How is specificity calculated?
+
+The specificity of a selector can be calculated using the following equation:
+
+`100 * a + 10 * b + c`
+
+- `a`: The number of `#id`s in the selector
+- `b`: The number of `.class` selectors, attribute selectors (like `[type="number"]`), and pseudo-class selectors (like `:hover`)
+- `c`: The number of type selectors (`div`, etc.), universal selectors (`*`) and pseudo-elements (like `::before`).
+
+### Example
+
+Let's consider the selector `.navbar ul.menu li#first a:not(:visited)`
+
+There is one id (`#first`), so `a = 1`.
+
+There are two class selectors (`.navbar` and `.menu`) and two pseudo-classes (`:not` and `:visited`), so `b = 4`
+
+There are three type selectors (`ul`, `li`, and `a`).
+
+So we have `(100 * 1) + (10 * 4) + (1 * 3) = 143`. The specificity of this selector is 143.
 
 ## Why is `!important` so goddamn awful?
 
+In the context of the calculation above, an `!important` keyword is worth 1000. When you add `!important` to a rule, the specificity of that rule just increased by a full order of magnitude. So to override an `!important` rule, you have to either give the new selector 1000 "specificity points" (10 `#id`s or 100 `.classes`, etc. PLEASE DON'T EVER DO THIS) or you can give that overriding rule an `!important` tag, too.
+
+So let's say you inherit some styling that you want to overwrite, but it has an `!important` tag. You style the element how you want and you slap an `!important` on it to make sure it overrides the previous style. Then in six months you are styling something else that contradicts the other style rule you already wrote. You have two choices. You can either refactor all the code to remove the `!important` tag you wrote initially (which also requires removing the first `!important` you were trying to deal with in the first place). Or you can just use another `!important`.
+
+As you can see, this just creates an endless cycle of dealing with a highly specific style rule by overwriting it with something just as specific. As this happens, the code gets messier and messier and the power of the `!important` weakens with every use. When everything is `!important`, nothing is.
+
+So just save yourself and your coworkers the stress and heartbreak and just avoid using `!important` in the first place (especially when you're building a stylesheet that will be inherited by other projects).
+
 ## Is is _ever_ okay to use `!important`?
 
-Yes! There are some notable use cases where it is okay to use `!important`.
+Yes! There are some notable use cases where it is okay to use `!important`. They don't happen often, but when they do, the `!important` tag will actually make your life better, not worse.
 
 ### Utility Classes (Be Careful)
 
+This use case is really only helpful if you are absolutely certain you want a style to persist throughout your stylesheet. Utility classes can use the `!important` tag successfully. Take this `.clearfix` class for example. Clearfixing is a common "hack" to allow a parent element to clearly fit all of its children. It looks something like this:
+
+```css
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  display: block;
+}
+```
+
+The `.clearfix` selector has the specificity of `11`. So what happens if a more specific selector targets an element that has the `.clearfix` class on it? The entire point of having that class there gets thrown away.
+
+But when you change the above styling to this:
+
+```css
+.clearfix:after {
+  visibility: hidden !important;
+  display: block !important;
+  content: " " !important;
+  clear: both !important;
+  height: 0 !important;
+}
+
+.clearfix {
+  display: block !important;
+}
+```
+
+The `clearfix` class maintains its purpose even when another class accidentally overwrites it.
+
 ### User Style Sheets
+
+In most browsers, if you dig deep enough into your settings you can write custom CSS that gets applied on every page. Most often this is done for readability (increasing base font sizes, improving contrast, etc).
+
+Since these styles get applied everywhere, the selectors used probably will not be very specific. Targeting a `div` or the `body` will only give you a specificity of `001`. These would get overridden immediately on almost every page! Using `!important` here allows you to ensure that your user styling is always applied to the elements in question.
 
 ### Targeting IE 5/6
 
@@ -74,3 +143,5 @@ div {
   background: green;
 }
 ```
+
+If you're trying to do something fancy with multiple browsers where this trick comes in handy, by all means use it. However, you'd probably be better off using a library like [Modernizr](https://modernizr.com/) to handle browser differences and versions. 
