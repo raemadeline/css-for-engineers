@@ -63,6 +63,8 @@ The specificity of a selector can be calculated using the following equation:
 - `b`: The number of `.class` selectors, attribute selectors (like `[type="number"]`), and pseudo-class selectors (like `:hover`)
 - `c`: The number of type selectors (`div`, etc.), universal selectors (`*`) and pseudo-elements (like `::before`).
 
+[Here](https://www.w3.org/TR/CSS2/cascade.html#specificity) is some more information on calculating specificity from W3.
+
 ### Example
 
 Let's consider the selector `.navbar ul.menu li#first a:not(:visited)`
@@ -91,7 +93,25 @@ Yes! There are some notable use cases where it is okay to use `!important`. They
 
 ### Utility Classes (Be Careful)
 
-This use case is really only helpful if you are absolutely certain you want a style to persist throughout your stylesheet. Utility classes can use the `!important` tag successfully. Take this `.clearfix` class for example. Clearfixing is a common "hack" to allow a parent element to clearly fit all of its children. It looks something like this:
+This use case is really only helpful if you are absolutely certain you want a style to persist throughout your stylesheet. Utility classes can use the `!important` tag successfully.
+
+Let's start with a utility class that just hides an element, `.hidden`.
+
+```css
+.hidden {
+  display: none;
+}
+```
+
+Because `.hidden` only has a specificity of `10`, it can be overridden easily. To ensure that it always works as intended, we modify it to
+
+```css
+.hidden {
+  display: none !important;
+}
+```
+
+For another example, consider `.clearfix`. Clearfixing is a common "hack" to allow a parent element containing floats to clearly fit all of its children without affecting the flow and placement of other elements around it. It looks something like this:
 
 ```css
 .clearfix:after {
@@ -144,4 +164,4 @@ div {
 }
 ```
 
-If you're trying to do something fancy with multiple browsers where this trick comes in handy, by all means use it. However, you'd probably be better off using a library like [Modernizr](https://modernizr.com/) to handle browser differences and versions. 
+If you're trying to do something fancy with multiple browsers where this trick comes in handy, by all means use it. However, you'd probably be better off using a library like [Modernizr](https://modernizr.com/) to handle browser differences and versions.
