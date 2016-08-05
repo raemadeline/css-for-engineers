@@ -55,7 +55,7 @@ A single element can be targeted in CSS using a bunch of different combinations 
 
 ### How is specificity calculated?
 
-The specificity of a selector can be calculated using the following equation:
+The specificity of a selector can be calculated using the following expression:
 
 `100 * a + 10 * b + c`
 
