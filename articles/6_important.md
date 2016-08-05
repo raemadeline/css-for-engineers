@@ -17,9 +17,9 @@ div {
 
 The `<div>` is going to be blue. Even though you told it to be green.
 
-This `!important` keyword is extremely powerful, but with great power comes great responsibility.
+This `!important` keyword is extremely powerful, but with great power comes great responsibility. But before we get into exactly _how_ `!important` is powerful, we have to go back and revisit the process that determines the order in which CSS styles are applied.
 
-## In what order do styles get applied in CSS?
+## A Refresher on How CSS Determines Which Styles to Apply
 
 The first thing to know is that CSS is an acronym for "Cascading Style Sheets". The styles _cascade_ on top of each other when they're applied to an element. Assuming all styles have the same weight, they will be applied from top to bottom.
 
@@ -165,3 +165,7 @@ div {
 ```
 
 If you're trying to do something fancy with multiple browsers where this trick comes in handy, by all means use it. However, you'd probably be better off using a library like [Modernizr](https://modernizr.com/) to handle browser differences and versions.
+
+### Conclusion
+
+`!important` is a powerful modifier to your CSS declarations. It can both help and hinder your progress, depending on its use. Make sure to seriously consider whether or not using `!important` is necessary, and be conservative in its use. Your teammates, and anyone who tries to build a UI off of your code in the future, will thank you. 
