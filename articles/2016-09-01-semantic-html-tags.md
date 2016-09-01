@@ -1,4 +1,4 @@
-# :name-badge: Semantic HTML Tags
+# :name_badge: Semantic HTML Tags
 
 <!-- TODO(maddie): introduction -->
 
@@ -9,23 +9,6 @@ For this first section, I assume you know nothing about HTML so if you're a seas
 ### What are HTML tags?
 
 ### How do they fit together to form a page?
-The goal of semantic HTML elements is to better represent the content within. A `<div>` can represent just about any block-level element, but it is better to be more specific. Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags. you are giving these systems an easier time.
-
-It also makes your code significantly easier to read by other humans. In a complex or large page with levels and levels of `<div>`s, it becomes impossible to understand the flow of information. Too many `<div>`s can fill up a page until it becomes unreadable. This is called _divitis_. Avoid it at all costs.The goal of semantic HTML elements is to better represent the content within. A `<div>` can represent just about any block-level element, but it is better to be more specific. Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags. you are giving these systems an easier time.
-
-It also makes your code significantly easier to read by other humans. In a complex or large page with levels and levels of `<div>`s, it becomes impossible to understand the flow of information. Too many `<div>`s can fill up a page until it becomes unreadable. This is called _divitis_. Avoid it at all costs.The goal of semantic HTML elements is to better represent the content within. A `<div>` can represent just about any block-level element, but it is better to be more specific. Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags. you are giving these systems an easier time.
-
-It also makes your code significantly easier to read by other humans. In a complex or large page with levels and levels of `<div>`s, it becomes impossible to understand the flow of information. Too many `<div>`s can fill up a page until it becomes unreadable. This is called _divitis_. Avoid it at all costs.The goal of semantic HTML elements is to better represent the content within. A `<div>` can represent just about any block-level element, but it is better to be more specific. Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags. you are giving these systems an easier time.
-
-It also makes your code significantly easier to read by other humans. In a complex or large page with levels and levels of `<div>`s, it becomes impossible to understand the flow of information. Too many `<div>`s can fill up a page until it becomes unreadable. This is called _divitis_. Avoid it at all costs.The goal of semantic HTML elements is to better represent the content within. A `<div>` can represent just about any block-level element, but it is better to be more specific. Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags. you are giving these systems an easier time.
-
-It also makes your code significantly easier to read by other humans. In a complex or large page with levels and levels of `<div>`s, it becomes impossible to understand the flow of information. Too many `<div>`s can fill up a page until it becomes unreadable. This is called _divitis_. Avoid it at all costs.The goal of semantic HTML elements is to better represent the content within. A `<div>` can represent just about any block-level element, but it is better to be more specific. Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags. you are giving these systems an easier time.
-
-It also makes your code significantly easier to read by other humans. In a complex or large page with levels and levels of `<div>`s, it becomes impossible to understand the flow of information. Too many `<div>`s can fill up a page until it becomes unreadable. This is called _divitis_. Avoid it at all costs.The goal of semantic HTML elements is to better represent the content within. A `<div>` can represent just about any block-level element, but it is better to be more specific. Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags. you are giving these systems an easier time.
-
-It also makes your code significantly easier to read by other humans. In a complex or large page with levels and levels of `<div>`s, it becomes impossible to understand the flow of information. Too many `<div>`s can fill up a page until it becomes unreadable. This is called _divitis_. Avoid it at all costs.The goal of semantic HTML elements is to better represent the content within. A `<div>` can represent just about any block-level element, but it is better to be more specific. Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags. you are giving these systems an easier time.
-
-It also makes your code significantly easier to read by other humans. In a complex or large page with levels and levels of `<div>`s, it becomes impossible to understand the flow of information. Too many `<div>`s can fill up a page until it becomes unreadable. This is called _divitis_. Avoid it at all costs.
 
 ## Getting More Advanced
 
