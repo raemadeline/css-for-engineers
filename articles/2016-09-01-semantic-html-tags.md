@@ -1,16 +1,8 @@
-# :name_badge: Semantic HTML Tags
+# :name_badge: Semantic HTML Elements
 
-<!-- TODO(maddie): introduction -->
+For this article, I assume you have a basic working knowledge of HTML. If this is not the case, please email me and I will bring you up to speed.
 
-## The Basics
 
-For this first section, I assume you know nothing about HTML so if you're a seasoned veteran I suggest you skip down to ["Getting More Advanced"](#getting-more-advanced).
-
-### What are HTML tags?
-
-### How do they fit together to form a page?
-
-## Getting More Advanced
 
 ### HTML5
 
@@ -60,6 +52,6 @@ Which will render to
 </section>
 ```
 
-The reason I prefer this option is because the wrapper `<div>` in choice 1 isn't actually necessary, and it can get away of some of the interesting things you can do with relative pseudo-selectors (for a refresher on what that is, here's the [blog post](2016-05-23-selectors-part-2-pseudo-classes.md) I wrote about it).
+The reason I prefer this option is because the wrapper `<div>` in choice 1 isn't actually necessary, and it can get in the way of some of the interesting things you can do with relative pseudo-selectors (for a refresher on what that is, here's the [blog post](2016-05-23-selectors-part-2-pseudo-classes.md) I wrote about it).
 
 ## Examples
