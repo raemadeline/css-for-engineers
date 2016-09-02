@@ -2,9 +2,9 @@
 
 For this article, I assume you have a basic working knowledge of HTML. If this is not the case, please email me and I will bring you up to speed.
 
-
-
 ### HTML5
+
+HTML5 was the newest iteration of of HTML published in 2014. This version primarily focused on enabling multiple devices and systems to interpret the markup languge. With a growing focus on responsive websites, screen readers and accessibility, the WWW introduced semantic tags. Specifically, they introduced new tags to represent new formats of media (`<canvas>`, `<video>`, `<audio>`), as well as ones to represent page structure (`<main>`, `<section>`, `<header>`, `<footer>`, `<nav>`, etc). 
 
 ### Why are semantic tags better?
 
