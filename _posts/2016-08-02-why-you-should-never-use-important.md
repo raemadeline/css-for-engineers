@@ -41,13 +41,13 @@ div {
 
 would end up looking like this:
 
-![skew image](../images/skew-image.png)
+![skew image]({{ site.baseurl }}/images/skew-image.png)
 
 The styles at the top of the declaration get applied first and the later styles (specifically `background` and `transform`) overwrite the previously applied styles.
 
 For a visual representation of how this looks:
 
-![skew image progression](../images/skew-image-progression.gif)
+![skew image progression]({{ site.baseurl }}/images/skew-image-progression.gif)
 
 ## Specificity
 

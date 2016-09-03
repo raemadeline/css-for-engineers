@@ -54,7 +54,7 @@ This is just a shorthand to combine `flex-direction` and `flex-wrap`. The syntax
 
 This determines the spacing of child elements along the main axis. This one is easier to understand visually, so here's an example:
 
-![Justify Content](../images/justify_content.png)
+![Justify Content]({{ site.baseurl }}/images/justify_content.png)
 
 To play around with these values, here's the [Codepen Demo](http://codepen.io/raemadeline/pen/BzzqxV). Try changing around other properties like `flex-direction` to see how these change.
 
@@ -68,7 +68,7 @@ http://codepen.io/raemadeline/pen/WxGeNd
 
 `align-content` is the same as `align-items`, but it handles the full range of child elements as a block instead of arranging each element in their line. For a better explanation, see the visual below (thanks css-tricks.com)
 
-![align-content](../images/align_content.png)
+![align-content]({{ site.baseurl }}/images/align_content.png)
 
 ### The Child Elements
 
@@ -82,7 +82,7 @@ This overrides the ordering of the elements as determined by the parent. By defa
 
 By default, assuming all `flex` children have the same size internally, they will all grow an equal amount to fill the remaining space left in the parent (assuming their `width` and `height` have not yet been fixed). This property determines the priority of the child to fill up more space. All children have a default of `flex-grow: 0` (will not grow), so if a child is given `flex-grow: 1`, it will take up all the remaining space unless its siblings are also given `flex-grow: 1`.
 
-![flex-grow](../images/flex_grow.png)
+![flex-grow]({{ site.baseurl }}/images/flex_grow.png)
 
 #### `flex-shrink`
 

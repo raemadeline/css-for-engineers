@@ -189,7 +189,7 @@ Last month, I refactored the way we do `z-index`es at Addepar to leverage the po
 
 The `z-index` of an element refers to its positioning in the z-axis. If you think of the x- and y- axes as the left-right / up-down directions on the screen, the z-axis is the direction going into and out of the screen. Another way of thinking about it is the way the element layers above or below other elements on the page.
 
-![z-index](../images/z_index.gif)
+![z-index]({{ site.baseurl }}/images/z_index.gif)
 
 *Image courtesy of http://www.annyhe.com/*
 
@@ -197,7 +197,7 @@ Something to note that is not directly related to the larger topic of this post,
 
 For a visual representation of how that looks (Assume that boxes 2 and 3 are children of box 1):
 
-![stacking order](../images/stacking.png)
+![stacking order]({{ site.baseurl }}/images/stacking.png)
 
 *Image courtesy of webdesign.tutsplus.com*
 

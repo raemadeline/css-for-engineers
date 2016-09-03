@@ -32,7 +32,7 @@ Once an element has been clicked, this will become the new default state for tha
 
 Putting it all together:
 
-![Demo](../images/stateful_pseudo_classes.gif)
+![Demo]({{ site.baseurl }}/images/stateful_pseudo_classes.gif)
 
 Here is a codepen [demo](http://codepen.io/raemadeline/pen/MyNXqx) for the gif above.
 
@@ -40,7 +40,7 @@ Here is a codepen [demo](http://codepen.io/raemadeline/pen/MyNXqx) for the gif a
 
 Focus is a special stateful pseudo-class because it can be applied to `<a>`s, `<buttons>`s, `<input>`s and `<textarea>`s. It refers to an element that is targeted by the keyboard or activated by the mouse. Its also used when "tabbing" through elements in a page to highlight which element is in focus at a given time. The default styling for `:focus` varies by browser, but it is usually an outline around the element. If you use chrome, you are probably familiar with this blue glow:
 
-![Default Styling for `:focus`](../images/focus_default.png)
+![Default Styling for `:focus`]({{ site.baseurl }}/images/focus_default.png)
 
 While you might think that this blue outline clashes with your style, and you might want to remove the default styling, it is important to have _some_ styling on `:focus`-able elements. This is because it is very beneficial for usability, as many people use only the keyboard and need to see which element is in focus at all times.
 
@@ -194,7 +194,7 @@ You can also do the same thing, but appended to the end of the element using `::
 
 You can also set `content: ""` if you don't want to add actual content, but you do want to add a shape, or mess around with the alignment (there is a popular  clearfix [hack](http://nicolasgallagher.com/micro-clearfix-hack/) using `::after`). You can also use `::before` and  `::after` to create custom bullet points and add arrows to tooltips.
 
-![Tooltip Example](../images/tooltip.png)
+![Tooltip Example]({{ site.baseurl }}/images/tooltip.png)
 
 [Codepen Demo](http://codepen.io/raemadeline/pen/KMwZRw)
 

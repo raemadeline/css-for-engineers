@@ -23,3 +23,11 @@ github_username:  raemadeline
 # Build settings
 markdown: kramdown
 theme: minima
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+gems:
+  - jemoji
