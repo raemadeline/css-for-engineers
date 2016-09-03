@@ -31,3 +31,5 @@ defaults:
       layout: "default"
 gems:
   - jemoji
+sass:
+  style: :compressed
