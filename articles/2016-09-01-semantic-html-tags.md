@@ -60,4 +60,29 @@ The reason I prefer this option is because the wrapper `<div>` in choice 1 isn't
 
 ## Example
 
-Here is an example of a website
+Here is an example of what the outline of a page would look like using semantic HTML5 elements.
+
+```html
+<header></header>
+<nav></nav>
+<main>
+  <article>
+    <section></section>
+    <section></section>
+  </article>
+  <aside>
+    <section></section>
+    <section></section>
+    <section></section>
+  </aside>
+</main>
+<footer></footer>
+```
+
+Even without adding any CSS or seeing the content itself, you can easily visualize what the page will look like and how its structured.
+
+For an example of how this might look in a page with content and CSS, check out this [codepen demo](http://codepen.io/raemadeline/pen/bwdgvJ)
+
+## Conclusion
+
+When in doubt, use the HTML element that most directly aligns with the purpose of the content within. `<div>`s have their time and place, but if it's at all possible to replace a `<div>` with a more descriptive element, please do so. 
