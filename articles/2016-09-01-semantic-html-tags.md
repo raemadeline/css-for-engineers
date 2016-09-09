@@ -12,7 +12,7 @@ The goal of semantic HTML elements is to better represent the content within. A 
 
 #### Accessibility
 
-Screen readers, parsers, and search engines that try to read your HTML and attempt to understand its structure. If you use semantic tags, you are giving these systems an easier time. Your audience is diverse and has a wide range of abilities/needs that you must address by including [ARIA attributes](http://html5doctor.com/using-aria-in-html/) in your HTML code. These attributes are necessary to ensure that accessibility API's can get the relevant information about your page. As of HTML5, semantic elements have the ARIA *role* built in by default. While it is important to consider ARIA attributes and include them whenever possible, using the right element for the content is a good bare minimum.
+Screen readers, parsers, and search engines will try to read your HTML and attempt to understand its structure. If you use semantic tags, you are giving these systems an easier time. Your audience is diverse and has a wide range of abilities/needs that you must address by including [ARIA attributes](http://html5doctor.com/using-aria-in-html/) in your HTML code. These attributes are necessary to ensure that accessibility API's can get the relevant information about your page. As of HTML5, semantic elements have the ARIA *role* built in by default. While it is important to consider ARIA attributes and include them whenever possible, using the right element for the content is a good bare minimum.
 
 #### Readability
 
@@ -22,7 +22,7 @@ However, it is much easier to understand if you take advantage of elements like 
 
 #### Styling
 
-An additional benefit of using semantic tags, is that you can write more general CSS selectors. For a refresher on specificity of CSS selectors, read the [blog post](2016-08-02-why-you-should-never-use-important.md) I wrote on the subject). The benefit of general selectors is that you can establish a foundation of styles (for example, all `<section>`s have a blue background and 10 pixels of padding), that can easily be overwritten in a more specific situation, without having to add too many extra classes or incorporating `!important`.
+An additional benefit of using semantic tags, is that you can write more general CSS selectors. To learn more about specificity of CSS selectors, read the [blog post](2016-08-02-why-you-should-never-use-important.md) I wrote on the subject. The benefit of general selectors is that you can establish a foundation of styles (for example, all `<section>`s have a blue background and 10 pixels of padding), that can easily be overwritten in a more specific situation, without having to add too many extra classes or incorporating `!important`.
 
 It should be stated that this approach only works in certain cases, usually smaller or simpler UI's. Styling on tag selectors is considered a bad practice if the UI is too large to be appropriately represented as such. There are situations where it can work, but you are more likely going to need to use class selectors for your styling.  
 
@@ -48,7 +48,7 @@ This will render to the following HTML
 </div>
 ```
 
-Another option (one that I personally prefer), is to change the `tagName` attribute of the component to match the appropriate semantic tag,
+A stronger but slightly more complex option is to change the `tagName` attribute of the component to match the appropriate semantic tag,
 
 ```handlebars
 {{#some-component
@@ -66,7 +66,13 @@ Which will render to
 </section>
 ```
 
-The reason I prefer this option is because the wrapper `<div>` in choice 1 isn't actually necessary, and it can get in the way of some of the interesting things you can do with relative pseudo-selectors (for a refresher on what that is, here's the [blog post](2016-05-23-selectors-part-2-pseudo-classes.md) I wrote about it).
+The reason I prefer this option is because the wrapper `<div>` in choice 1 isn't actually necessary, and it can get in the way of some of the interesting things you can do with relative pseudo-selectors (here's the [blog post](2016-05-23-selectors-part-2-pseudo-classes.md) I wrote about it).
+
+## Wait, but when do I use `<div>`s?
+
+There are still valid uses for a `<div>` tag. Specifically, it is valuable when there is no appropriate semantic element to use for the content. Especially in complex UI's, there is no guarantee that every element will be able to be neatly represented by one of the HTML5 semantic tags.
+
+It is also useful for dynamically generated content that could take on any form. In complex web apps, there is often a space for user-generated content that can take on many forms. It is better to intentionally choose a vague tag than to inaccurately represent the data within.
 
 ## Example
 
