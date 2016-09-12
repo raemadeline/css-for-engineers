@@ -144,4 +144,4 @@ http://codepen.io/raemadeline/pen/pbbKWG
 
 If you feel like practicing using `flex` in your CSS, there's a [Tower Defense game](http://www.flexboxdefense.com/) to make that more fun.
 
-**Next Up: [SASS Variables and Functions](5_sass_functions.md)**
+**Next Up: [SASS Variables and Functions](2016-07-13-sass-functions-and-data-structures.md)**

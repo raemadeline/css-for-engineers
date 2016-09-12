@@ -39,7 +39,7 @@ And it will get compiled into CSS that looks like this:
 
 Note that I'm using `descendant` instead of `child`, because this nesting works for any descendant of the parent, not just its direct children.
 
-For added specificity, you can also use this nesting with any parent and any descendant selectors (see [A Crash Course in CSS Selectors: Part 1](1_selectors.md) if you need a refresher).
+For added specificity, you can also use this nesting with any parent and any descendant selectors (see [A Crash Course in CSS Selectors: Part 1](2016-05-19-a-crash-course-in-selectors.md) if you need a refresher).
 
 
 ## The Ampersand
@@ -266,4 +266,4 @@ button + button {
 
 This trick isn't needed very often, but when it applies it can save you a bit of time and effort.
 
-**Next Up: [Talking about Flexible Layouts](4_flex.md)**
+**Next Up: [Talking about Flexible Layouts](2016-06-17-an-introduction-to-flex.md)**

@@ -51,7 +51,7 @@ For a visual representation of how this looks:
 
 ## Specificity
 
-A single element can be targeted in CSS using a bunch of different combinations of selectors, depending on its place within the DOM (for a refresher on selectors, read [this](1_selectors.md), [this](2_pseudo_classes.md), and [this](3_sass_selectors.md)). Depending on the selector you use to target an element with styling, the level of *specificity* of those styles can vary. Higher levels of specificity overwrite lower levels. The cascading effect outlined in the previous section is applied from lower specificity levels to higher, and then within each level.
+A single element can be targeted in CSS using a bunch of different combinations of selectors, depending on its place within the DOM (for a refresher on selectors, read [this](2016-05-19-a-crash-course-in-selectors.md), [this](2016-05-23-selectors-part-2-pseudo-classes.md), and [this](2016-06-07-selectors-part-3-sass.md)). Depending on the selector you use to target an element with styling, the level of *specificity* of those styles can vary. Higher levels of specificity overwrite lower levels. The cascading effect outlined in the previous section is applied from lower specificity levels to higher, and then within each level.
 
 ### How is specificity calculated?
 

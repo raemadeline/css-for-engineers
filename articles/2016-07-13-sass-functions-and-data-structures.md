@@ -2,7 +2,7 @@
 
 As you've probably noticed by now, CSS isn't really a *programming language* by most people's standards. You can do a lot of really cool things, but you cannot do most of the things you learned in your Intro to Computer Science class (for loops, if/else, etc), and this bothers a lot of people who are used to thinking that way.
 
-Enter [SASS](http://sass-lang.com/). I discussed it briefly in my previous article about [selectors](3_sass_selectors.md). The long and short of it is that this preprocessor has *superpowers*, and by that I mean it has one superpower and it is to magically give CSS the ability to do all the things we're accustomed to with other languages.
+Enter [SASS](http://sass-lang.com/). I discussed it briefly in my previous article about [selectors](2016-06007-selectors-part-3-sass.md). The long and short of it is that this preprocessor has *superpowers*, and by that I mean it has one superpower and it is to magically give CSS the ability to do all the things we're accustomed to with other languages.
 
 ## Variables
 
