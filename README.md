@@ -9,3 +9,4 @@ Welcome to CSS For Engineers! This is a series of blog posts explaining concepts
 5. [:wrench: SASS Functions and Data Structures](articles/2016-07-13-sass-functions-and-data-structures.md)
 6. [:no_good: Why you should never use `!important`](articles/2016-08-02-why-you-should-never-use-important.md)
 7. [:name_badge: Semantic HTML Elements](articles/2016-09-01-semantic-html-tags.md)
+8. [:eyes: Units](articles/2016-09-15-units.md)
