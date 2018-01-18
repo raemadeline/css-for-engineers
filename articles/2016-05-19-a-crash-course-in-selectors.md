@@ -32,7 +32,7 @@ and this as your CSS
 }
 ```
 
-The `div` and the `p` elements would both have `10px` padding and they would have pink backgrounds. Only the `p` tag would be colored blue because it is the only element with the class `.special`.
+The `div` and the `p` elements would both have `10px` padding and they would have pink backgrounds. Only the `p` tag would be colored blue because it is the only element with the class `.special`. 
 
 ### `#id`
 
@@ -62,6 +62,26 @@ In most cases when building out CSS for a large and complex product, you general
 ### `element`
 <!-- TODO(maddie): link to semantic markup article -->
 This selector refers to the actualy DOM element. When you style all `div`s, you are selecting every `<div></div>` in the DOM, regardless of what class or IDs they have. If you are taking advantage of semantic markup (using `<header>` instead of `<div class="header">` for example -- more on this in its own blog post), you can use these selectors pretty effectively without needing to add extra classes.
+
+```html
+<div class="fun">
+  <h1>Hooray!</h1>
+  <p>Hello World!</p>
+  <p class="fun">This is fun.</p>
+</div>
+```
+
+and this as your CSS
+
+```css
+p {
+  background-color: pink;
+}
+```
+
+The two paragraphs will have pink backgrounds, but the heading will not.
+
+### attribute selectors
 
 You can also add specificity to these selectors by taking advantage of certain attributes the DOM element has. For instance, if you were styling a form that had both `<input type="text"></input>` and `<input type="submit"></input>`, you would want to style them differently as one appears in the DOM as a text box while the other appears as a button, despite them both having the tag name `input`.
 
@@ -143,7 +163,7 @@ Examples:
 
 #### >
 
-`>` is the direct child selector. It will only select elements that are directly below its parent.
+`>` is the direct child selector. It will only select elements that are directly below, or direct descendants, of its parent.
 
 For example, if you had this as your HTML
 
@@ -169,7 +189,7 @@ Only the word "Hello" would be styled.
 
 #### ~
 
-`~` is the sibling selector. So any elements that are at the same level and exist under the same parent will be selected.
+`~` is the general sibling selector. So, in the case of `E ~ F` any F elements that are at the same level as E, and exist within the same parent will be selected.
 
 For example, if you had this as your HTML
 
@@ -178,6 +198,7 @@ For example, if you had this as your HTML
 <div class="selected">
   <p>Hello</p>
 </div>
+<p>small</p>
 <p>World</p>
 ```
 
@@ -189,11 +210,11 @@ and this as your CSS
 }
 ```
 
-The words "World" and "Yay!" would be bolded this time, because they are at the same level as the `<div class="selected">` and they are all exist under the same parent `<body>`.
+The words "World" and "small", but neither "Hello" nor "Yay!", would be bolded this time, because the  `<p>`s are at the same level as the `<div class="selected">`, comes after the element with the `.selected` class,  and have the same parent, which may be `<body>` in this case. 
 
 #### +
 
-`+` is the adjacent sibling selector, so only the sibling immediately following the first selector will be chosen. The sibling is only selected if it is the next element immediately following the first element in the selector.
+`E + F` is the adjacent sibling selector, so only the single sibling, if it matche F, coming immediately following the element matching E will be chosen. The sibling is only selected if it is the next element immediately following the first element in the selector.
 
 For example, if you had this as your HTML
 
@@ -215,6 +236,6 @@ and this as your CSS
 }
 ```
 
-Only the word "World" would be bolded. Take special note that "Yay!" is not bolded because there is another element between it and `<div class="selected">`.
+Only the word "World" would be bold. Take special note that "Yay!" is not bolded because there is another element between it and `<div class="selected">`.
 
 **Keep an eye out for [Part 2](2016-05-23-selectors-part-2-pseudo-classes.md) of this blog post where I will discuss pseudo elements.**
